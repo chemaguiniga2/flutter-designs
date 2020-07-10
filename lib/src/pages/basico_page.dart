@@ -16,43 +16,50 @@ class _BasicoPageState extends State<BasicoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: <Widget>[        
             _crearImagen(),
             _crearTitulo(),
             _crearAcciones(),
             _crearTexto(),
           ],
-        ),
+        ),  
       ),
     );
   }
 
   Widget _crearImagen() {
-    return Image(
-      image: NetworkImage('https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+    return Container(
+      width: double.infinity,
+      child: Image(
+        image: NetworkImage('https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+        height: 200.0,
+        fit: BoxFit.cover,
+      ),
     );
   }
 
   Widget _crearTitulo() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Lago con un puente', style: estiloTitulo),
-                SizedBox(height: 7.0),
-                Text('Un lago en Tlahuac', style: estiloSubtitulo),
-              ],
+    return SafeArea(
+        child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Lago con un puente', style: estiloTitulo),
+                  SizedBox(height: 7.0),
+                  Text('Un lago en Tlahuac', style: estiloSubtitulo),
+                ],
+              ),
             ),
-          ),
-          Icon(Icons.star, color: Colors.red, size: 30.0),
-          Text('41', style: TextStyle(fontSize: 20.0)),
-        ],
+            Icon(Icons.star, color: Colors.red, size: 30.0),
+            Text('41', style: TextStyle(fontSize: 20.0)),
+          ],
+        ),
       ),
     );
   }
@@ -79,11 +86,13 @@ class _BasicoPageState extends State<BasicoPage> {
   }
 
   Widget _crearTexto() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Ut voluptate aliquip et nisi duis magna et sunt amet enim non qui eiusmod adipisicing. Mollit incididunt Lorem pariatur mollit eu ad occaecat commodo voluptate proident Lorem consectetur. Veniam dolore eu ex duis id laborum ullamco reprehenderit elit sint mollit ad pariatur laborum. Exercitation ullamco sunt aute irure qui consectetur nisi quis.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+        child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+        child: Text(
+          'Ut voluptate aliquip et nisi duis magna et sunt amet enim non qui eiusmod adipisicing. Mollit incididunt Lorem pariatur mollit eu ad occaecat commodo voluptate proident Lorem consectetur. Veniam dolore eu ex duis id laborum ullamco reprehenderit elit sint mollit ad pariatur laborum. Exercitation ullamco sunt aute irure qui consectetur nisi quis.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
